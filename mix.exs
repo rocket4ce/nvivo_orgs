@@ -54,7 +54,6 @@ defmodule NvivoOrgs.MixProject do
       {:absinthe, "~> 1.7"},
       {:absinthe_plug, "~> 1.5"},
       {:absinthe_graphql_ws, "~> 0.3"}
-
     ]
   end
 
