@@ -13,6 +13,17 @@ defmodule NvivoOrgsWeb.Schema do
         {:ok, @items}
       end)
     end
+
+    field :item, :item do
+      arg :id, non_null(:id)
+
+      resolve(fn %{id: id}, _ ->
+        case Enum.find(@items, fn item -> item.id == String.to_integer(id) end) do
+          nil -> {:error, "Item not found"}
+          item -> {:ok, item}
+        end
+      end)
+    end
   end
 
   object :item do
