@@ -5,8 +5,10 @@ defmodule NvivoOrgsWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", NvivoOrgsWeb do
+  scope "/api" do
     pipe_through :api
+
+    forward "/", Absinthe.Plug, schema: NvivoOrgsWeb.Schema
   end
 
   # Enable Swoosh mailbox preview in development
